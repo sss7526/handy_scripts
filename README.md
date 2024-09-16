@@ -54,3 +54,9 @@ docker run -d -p 3000:8080 -e OPENAI_API_KEY=your_secret_key -v open-webui:/app/
 ```
 pkill -f VBoxClient; VBoxClient --clipboard
 ```
+
+### Launch Whoogle instance
+```
+sudo docker pull benbusby/whoogle-search
+sudo docker run -d --name whoogle --network="host" benbusby/whoogle-search
+```
