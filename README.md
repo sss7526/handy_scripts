@@ -80,7 +80,7 @@ sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 
-# Clone his git
+# Clone this git
 git clone https://github.com/sss7526/handy_scripts.git
 
 # Move to mattermost directory (THERES A YML FILE IN HERE)
