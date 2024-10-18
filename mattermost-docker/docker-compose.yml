@@ -1,0 +1,30 @@
+services:  # <-- Use "services" as the top-level key
+  app:
+    image: mattermost/mattermost-team-edition:latest
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8065:8065"
+    environment:
+      MM_CONFIG: /mattermost/config/config.json
+      MM_SQLSETTINGS_DATASOURCE: "postgres://mmuser:mmuser_password@db:5432/mattermost?sslmode=disab>
+    volumes:
+      - ./volumes/app/mattermost:/mattermost/data
+    depends_on:
+      - db
+    networks:
+      - backend
+
+  db:
+    image: postgres:12-alpine
+    restart: unless-stopped
+    volumes:
+      - ./volumes/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: mmuser
+      POSTGRES_PASSWORD: mmuser_password
+      POSTGRES_DB: mattermost
+    networks:
+      - backend
+
+networks:
+  backend:

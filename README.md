@@ -72,3 +72,30 @@ sudo docker pull codercom/code-server:latest
 # run and name the container
 sudo docker run -d --name vscode -p 8443:8080 -e AUTH="none" -v "$HOME/code-server:/home/coder" codercom/code-server:latest --auth none
 ```
+
+### Launch Mattermost Team chat server/webclient
+```bash
+# Install dockercompose and ensure install was successfull
+sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version
+
+# Clone his git
+git clone https://github.com/sss7526/handy_scripts.git
+
+# Move to mattermost directory (THERES A YML FILE IN HERE)
+cd mattermost-docker
+
+# Make a dir and change perms on it
+sudo mkdir -p ./volumes/app/mattermost ./volumes/db
+sudo chown -R 2000:2000 ./volumes/app/mattermost ./volumes/db
+
+# Run docker compose
+sudo docker-compose up -d
+
+# Access the webapp
+# At http://localhost:8065
+# It'll ask for you to sign up with email/pword and give your org name, but it takes anything, no real stuff required.
+
+# From here do the nginx reverse proxy thing
+```
