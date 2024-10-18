@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apt purge -y apport apport-symptoms popularity-contest ubuntu-report whoopsie libreoffice*
+apt purge -y apport apport-symptoms popularity-contest ubuntu-report whoopsie libreoffice* *thunderbird* *rhythmbox*
 apt autoremove -y
 apt autoclean
 apt update

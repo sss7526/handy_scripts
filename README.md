@@ -60,3 +60,15 @@ pkill -f VBoxClient; VBoxClient --clipboard
 sudo docker pull benbusby/whoogle-search
 sudo docker run -d --name whoogle --network="host" benbusby/whoogle-search
 ```
+
+### Launch VSCode Server container
+```bash
+# make a directory to mount as volume
+mkdir code-server
+
+# pull the image
+sudo docker pull codercom/code-server:latest
+
+# run and name the container
+sudo docker run -d --name vscode -p 8443:8080 -e AUTH="none" -v "$HOME/code-server:/home/coder" codercom/code-server:latest --auth none
+```
