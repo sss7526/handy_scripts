@@ -23,36 +23,6 @@ MODULE_NAME=$(shell basename $(PWD))
 all: help
 
 ## Default target - show help
-old_help:
-	@echo ""
-	@echo "============================================================="
-	@echo " 🌟            COMMANDS FOR GO PROJECT MANAGEMENT           🌟"
-	@echo "============================================================="
-	@echo ""
-	@echo " 🛠  Setup and Maintenance:"
-	@echo "    install            Install the latest Go version (if not installed)."
-	@echo "    update             Update Go to the latest version (if a different version exists)."
-	@echo "    uninstall          Remove the currently installed version of Go."
-	@echo ""
-	@echo " 📦  Module Management:"
-	@echo "    mod-init           Initialize a new Go project in the current directory."
-	@echo "    mod-tidy           Clean up go.mod and go.sum files."
-	@echo "    mod-update         Update all dependencies to their latest versions."
-	@echo ""
-	@echo " 🔍  Code Quality and Security:"
-	@echo "    format             Format Go files using gofmt for clean and consistent code."
-	@echo "    lint               Run golangci-lint for comprehensive linting (verbose)."
-	@echo "    vulncheck          Run govulncheck to scan for vulnerabilities in dependencies."
-	@echo ""
-	@echo " 📖  Miscellaneous:"
-	@echo "    help               Print this help output (default target)."
-	@echo ""
-	@echo "============================================================="
-	@echo " 🙏  TIP: Use 'make <target>' to run a specific command."
-	@echo "============================================================="
-	@echo ""
-
-
 help:
 	@COLUMNS=$$(tput cols); \
 	BORDER=$$(printf '=%.0s' $$(seq 1 $$COLUMNS)); \
