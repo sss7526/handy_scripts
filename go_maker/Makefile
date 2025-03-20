@@ -26,6 +26,19 @@ all: help
 help:
 	@COLUMNS=$$(tput cols); \
 	BORDER=$$(printf '=%.0s' $$(seq 1 $$COLUMNS)); \
+	HEADER1=" ██████╗  ██████╗       ███╗   ███╗ █████╗ ██╗  ██╗███████╗██████╗"; \
+	HEADER2="██╔════╝ ██╔═══██╗      ████╗ ████║██╔══██╗██║ ██╔╝██╔════╝██╔══██╗"; \
+	HEADER3="██║  ███╗██║   ██║█████╗██╔████╔██║███████║█████╔╝ █████╗  ██████╔╝"; \
+	HEADER4="██║   ██║██║   ██║╚════╝██║╚██╔╝██║██╔══██║██╔═██╗ ██╔══╝  ██╔══██╗"; \
+	HEADER5="╚██████╔╝╚██████╔╝      ██║ ╚═╝ ██║██║  ██║██║  ██╗███████╗██║  ██║"; \
+	HEADER6=" ╚═════╝  ╚═════╝       ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝"; \
+	echo "$$BORDER"; \
+	printf "%*s\n" $$((($$COLUMNS+$${#HEADER1})/2)) "$$HEADER1"; \
+	printf "%*s\n" $$((($$COLUMNS+$${#HEADER2})/2)) "$$HEADER2"; \
+	printf "%*s\n" $$((($$COLUMNS+$${#HEADER3})/2)) "$$HEADER3"; \
+	printf "%*s\n" $$((($$COLUMNS+$${#HEADER4})/2)) "$$HEADER4"; \
+	printf "%*s\n" $$((($$COLUMNS+$${#HEADER5})/2)) "$$HEADER5"; \
+	printf "%*s\n" $$((($$COLUMNS+$${#HEADER6})/2)) "$$HEADER6"; \
 	echo "$$BORDER"; \
 	printf "%*s\n" $$((($$COLUMNS+43)/2)) "COMMANDS FOR GO PROJECT MANAGEMENT"; \
 	echo "$$BORDER"; \
