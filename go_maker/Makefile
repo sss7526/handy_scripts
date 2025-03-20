@@ -32,15 +32,18 @@ help:
 	HEADER4="██║   ██║██║   ██║╚════╝██║╚██╔╝██║██╔══██║██╔═██╗ ██╔══╝  ██╔══██╗"; \
 	HEADER5="╚██████╔╝╚██████╔╝      ██║ ╚═╝ ██║██║  ██║██║  ██╗███████╗██║  ██║"; \
 	HEADER6=" ╚═════╝  ╚═════╝       ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝"; \
+	echo ""; \
 	echo "$$BORDER"; \
-	printf "%*s\n" $$((($$COLUMNS+$${#HEADER1})/2)) "$$HEADER1"; \
-	printf "%*s\n" $$((($$COLUMNS+$${#HEADER2})/2)) "$$HEADER2"; \
-	printf "%*s\n" $$((($$COLUMNS+$${#HEADER3})/2)) "$$HEADER3"; \
-	printf "%*s\n" $$((($$COLUMNS+$${#HEADER4})/2)) "$$HEADER4"; \
-	printf "%*s\n" $$((($$COLUMNS+$${#HEADER5})/2)) "$$HEADER5"; \
-	printf "%*s\n" $$((($$COLUMNS+$${#HEADER6})/2)) "$$HEADER6"; \
+	echo ""; \
+	SPACES=$$((($$COLUMNS-$${#HEADER1})/2)); printf "%*s%s\n" $$SPACES "" "$$HEADER1"; \
+	SPACES=$$((($$COLUMNS-$${#HEADER2})/2)); printf "%*s%s\n" $$SPACES "" "$$HEADER2"; \
+	SPACES=$$((($$COLUMNS-$${#HEADER3})/2)); printf "%*s%s\n" $$SPACES "" "$$HEADER3"; \
+	SPACES=$$((($$COLUMNS-$${#HEADER4})/2)); printf "%*s%s\n" $$SPACES "" "$$HEADER4"; \
+	SPACES=$$((($$COLUMNS-$${#HEADER5})/2)); printf "%*s%s\n" $$SPACES "" "$$HEADER5"; \
+	SPACES=$$((($$COLUMNS-$${#HEADER6})/2)); printf "%*s%s\n" $$SPACES "" "$$HEADER6"; \
+	echo ""; \
 	echo "$$BORDER"; \
-	printf "%*s\n" $$((($$COLUMNS+43)/2)) "COMMANDS FOR GO PROJECT MANAGEMENT"; \
+    SPACES=$$((($$COLUMNS-43)/2)); printf "%*s%s\n" $$SPACES "" "COMMANDS FOR GO PROJECT MANAGEMENT"; \
 	echo "$$BORDER"; \
 	echo ""; \
 	echo "  🛠  SETUP AND MAINTENANCE:"; \
@@ -62,7 +65,7 @@ help:
 	echo "      help          Display this help screen."; \
 	echo ""; \
 	echo "$$BORDER"; \
-	echo "     INFO: Use 'make <target>' to run a command."; \
+	SPACES=$$((($$COLUMNS-38)/2)); printf "%*s%s\n" $$SPACES "" "INFO: Use 'make <target>' to run a command."; \
 	echo "$$BORDER"; \
 	echo ""
 
