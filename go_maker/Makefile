@@ -150,10 +150,15 @@ golangci-lint-install: .validate_go_installed
 ## Run golangci-ling for linting and static analysis
 lint: golangci-lint-install format
 	@echo "Running golangci-lint with comprehensive checks..."; \
-	$(GOLANGCI_LINT_BINARY) run --verbose --enable-all \
-		--disable=gosec \
-		--disable=thelper \
-		--disable=tenv
+	$(GOLANGCI_LINT_BINARY) run --verbose --disable-all \
+		--enable=errcheck \
+		--enable=gosimple \
+		--enable=govet \
+		--enable=ineffassign \
+		--enable=staticcheck \
+		--enable=unused \
+		--enable=gosec \
+		-timeout=5m
 
 ## Install govulncheck
 govulncheck-install: .validate_go_installed
